@@ -1,0 +1,8 @@
+
+{
+  "name": "Sideline Savings - Event Scanner",
+  "description": "Professional event gatekeeper application for scanning and validating tickets. Secure, real-time ticket verification for event staff.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

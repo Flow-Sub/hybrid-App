@@ -1,0 +1,21 @@
+
+{
+  "name": "Sideline Savings - Event Scanner",
+  "short_name": "SS Pass",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#5F308B",
+  "theme_color": "#5F308B",
+  "icons": [
+    {
+      "src": "https://sidelinesavings.com/wp-content/uploads/2025/05/Sidelines-Savings-Logo-2.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://sidelinesavings.com/wp-content/uploads/2025/05/Sidelines-Savings-Logo-2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
