@@ -112,16 +112,16 @@ const ScannerComponent: React.FC<ScannerComponentProps> = ({ onScan, disabled })
     <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900 to-black aspect-square shadow-2xl">
       {/* Camera Selection Modal */}
       {showCameraSelect && cameras.length > 0 && (
-        <div className="absolute inset-0 bg-black/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center p-6">
-          <div className="text-center mb-6">
-            <div className="w-16 h-16 bg-purple-500/20 rounded-3xl flex items-center justify-center mx-auto mb-4">
-              <Camera className="w-8 h-8 text-purple-400" />
+        <div className="absolute inset-0 bg-black/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center p-4 overflow-hidden">
+          <div className="text-center mb-4">
+            <div className="w-14 h-14 bg-purple-500/20 rounded-3xl flex items-center justify-center mx-auto mb-3">
+              <Camera className="w-7 h-7 text-purple-400" />
             </div>
-            <h3 className="text-white font-black text-xl mb-2">Select Camera</h3>
-            <p className="text-gray-400 text-sm font-semibold">Choose which camera to use for scanning</p>
+            <h3 className="text-white font-black text-lg mb-1">Select Camera</h3>
+            <p className="text-gray-400 text-xs font-semibold px-2">Choose which camera to use</p>
           </div>
           
-          <div className="w-full space-y-3">
+          <div className="w-full space-y-2.5 px-2 max-w-sm">
             {cameras.map((camera) => {
               // Better detection logic - check label for keywords
               const label = camera.label.toLowerCase();
@@ -140,28 +140,28 @@ const ScannerComponent: React.FC<ScannerComponentProps> = ({ onScan, disabled })
                                 isFront ? 'Front Camera' : 
                                 camera.label || `Camera ${cameras.indexOf(camera) + 1}`;
               
-              const displayDescription = isRear ? 'Recommended for scanning' : 
-                                        isFront ? 'Selfie camera' : 
-                                        'Available camera';
+              const displayDescription = isRear ? 'Recommended' : 
+                                        isFront ? 'Selfie' : 
+                                        'Available';
               
               return (
                 <button
                   key={camera.id}
                   onClick={() => handleCameraSelect(camera.id)}
-                  className="w-full bg-white/10 hover:bg-white/20 border-2 border-white/20 hover:border-purple-500/50 rounded-2xl p-5 transition-all active:scale-95 flex items-center space-x-4"
+                  className="w-full bg-white/10 hover:bg-white/20 border-2 border-white/20 hover:border-purple-500/50 rounded-xl p-3.5 transition-all active:scale-95 flex items-center space-x-3"
                 >
-                  <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     {isRear || (!isFront && cameras.indexOf(camera) === 0) ? (
-                      <Camera className="w-6 h-6 text-purple-400" />
+                      <Camera className="w-5 h-5 text-purple-400" />
                     ) : (
-                      <Video className="w-6 h-6 text-purple-400" />
+                      <Video className="w-5 h-5 text-purple-400" />
                     )}
                   </div>
-                  <div className="flex-1 text-left">
-                    <p className="text-white font-bold text-base">
+                  <div className="flex-1 text-left min-w-0">
+                    <p className="text-white font-bold text-sm truncate">
                       {displayName}
                     </p>
-                    <p className="text-gray-400 text-xs font-semibold mt-0.5">
+                    <p className="text-gray-400 text-[10px] font-semibold mt-0.5 truncate">
                       {displayDescription}
                     </p>
                   </div>
