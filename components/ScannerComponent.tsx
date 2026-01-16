@@ -25,9 +25,11 @@ const ScannerComponent: React.FC<ScannerComponentProps> = ({ onScan, disabled })
       try {
         const devices = await Html5Qrcode.getCameras();
         if (devices && devices.length > 0) {
-          const cameraList = devices.map(device => ({
+          // Only take first 2 cameras to avoid duplicates
+          const limitedDevices = devices.slice(0, 2);
+          const cameraList = limitedDevices.map(device => ({
             id: device.id,
-            label: device.label || `Camera ${devices.indexOf(device) + 1}`
+            label: device.label || `Camera ${limitedDevices.indexOf(device) + 1}`
           }));
           setCameras(cameraList);
           
