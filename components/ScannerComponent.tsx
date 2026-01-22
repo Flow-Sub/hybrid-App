@@ -70,12 +70,8 @@ const ScannerComponent: React.FC<ScannerComponentProps> = ({ onScan, disabled })
           aspectRatio: 1.0
         },
         (decodedText) => {
-          console.log('QR Code scanned:', decodedText); // DEBUG
           if (!disabled) {
-            console.log('Calling onScan with:', decodedText); // DEBUG
             onScan(decodedText);
-          } else {
-            console.log('Scan disabled, ignoring'); // DEBUG
           }
         },
         (errorMessage) => {
